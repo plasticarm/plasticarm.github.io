@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function (){
+
+
+
 var Tile = function(x, y, face) {
 	this.x = x;
 	this.y = y;
@@ -24,39 +28,39 @@ Tile.prototype.drawFaceUp = function() {
 Tile.prototype.isUnderMouse = function(x, y) {
 	return x >= this.x && x <= this.x + this.size  &&
 	y >= this.y && y <= this.y + this.size;
-	};
+};
 
-		// Global config
-	var NUM_COLS = 5;
-	var NUM_ROWS = 4;
+    // Global config
+var NUM_COLS = 5;
+var NUM_ROWS = 4;
 
-		// Declare an array of all possible faces
-	var faces = [
-	getImage("avatars/leafers-seed"),
-	getImage("avatars/leafers-seedling"),
-	getImage("avatars/leafers-sapling"),
-	getImage("avatars/leafers-tree"),
-	getImage("avatars/leafers-ultimate"),
-	getImage("avatars/marcimus"),
-	getImage("avatars/mr-pants"),
-	getImage("avatars/mr-pink"),
-	getImage("avatars/old-spice-man"),
-	getImage("avatars/robot_female_1")
-	];
+    // Declare an array of all possible faces
+var faces = [
+getImage("avatars/leafers-seed"),
+getImage("avatars/leafers-seedling"),
+getImage("avatars/leafers-sapling"),
+getImage("avatars/leafers-tree"),
+getImage("avatars/leafers-ultimate"),
+getImage("avatars/marcimus"),
+getImage("avatars/mr-pants"),
+getImage("avatars/mr-pink"),
+getImage("avatars/old-spice-man"),
+getImage("avatars/robot_female_1")
+];
 
-					// Make an array which has 2 of each, then randomize it
-	var possibleFaces = faces.slice(0);
-	var selected = [];
-	for (var i = 0; i < 10; i++) {
-		// Randomly pick one from the array of remaining faces
-		var randomInd = floor(random(possibleFaces.length));
-		var face = possibleFaces[randomInd];
-			// Push 2 copies onto array
-		selected.push(face);
-		selected.push(face);
-			// Remove from array
-		possibleFaces.splice(randomInd, 1);
-    }
+// Make an array which has 2 of each, then randomize it
+var possibleFaces = faces.slice(0);
+var selected = [];
+for (var i = 0; i < 10; i++) {
+    // Randomly pick one from the array of remaining faces
+    var randomInd = floor(random(possibleFaces.length));
+    var face = possibleFaces[randomInd];
+        // Push 2 copies onto array
+    selected.push(face);
+    selected.push(face);
+        // Remove from array
+    possibleFaces.splice(randomInd, 1);
+}
 
 			// Now shuffle the elements of that array
     var shuffleArray = function(array) {
@@ -127,3 +131,12 @@ Tile.prototype.isUnderMouse = function(x, y) {
                 noLoop();
     }
 };
+}
+
+/*
+<html>
+    <body>
+        <script src="https://github.com/plasticarm/plasticarm.github.io/blob/main/javascript/TileMatchingGame.js"></script>
+    </body>
+</html>
+*/
